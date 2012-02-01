@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<f:metadata>
+	<f:viewParam name="page" value="#{gbBacking.page}" />
+</f:metadata>
+<f:event type="preRenderView" listener="#{gbBacking.onLoad}" />
+<h:head>
+	<title>Guestbook</title>
+	<h:outputStylesheet name="style.css" />
+</h:head>
+
+<h:body>
+	<h1>Guestbook</h1>
+	<hr />
+	<div id="top">
+		<h:link outcome="add" value="Add your sign!" />
+	</div>
+	<br />
+	<div id="list">
+		<h:dataTable border="1" value="#{gbBacking.list}" var="b">
+			<h:column>
+				<f:facet name="header">Nickname</f:facet>
+				<h:outputText value="#{b.nickname}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Created</f:facet>
+				<h:outputText value="#{b.created}">
+					<f:convertDateTime timeStyle="short" type="both" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Message</f:facet>
+				<h:outputText value="#{b.message}" />
+			</h:column>
+		</h:dataTable>
+
+	</div>
+	<br />
+	<div id="pager">
+		<h:link value="&lt; prev" outcome="index"
+			rendered="#{gbBacking.prevAvailable}">
+			<f:param name="page" value="#{gbBacking.page - 1}" />
+		</h:link>
+		#{gbBacking.page + 1} of #{gbBacking.totalPages}
+		<h:link value="next &gt;" outcome="index"
+			rendered="#{gbBacking.nextAvailable == true}">
+			<f:param name="page" value="#{gbBacking.page + 1}" />
+		</h:link>
+	</div>
+	<h:messages />
+</h:body>
+
+</html>

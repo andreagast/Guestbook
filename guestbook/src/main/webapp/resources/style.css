@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+body, td {
+	font-family: helvetica;
+}
+
+table {
+	width: 100%;
+}
+
+#top {
+	background: #FFCCAA;
+	text-align: center;
+}
+
+#list {
+	font-family: arial;
+	/*width: 100%;*/
+}
+
+#pager {
+	text-align: center;
+}

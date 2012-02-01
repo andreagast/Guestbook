@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Add your sign!</title>
+	<h:outputStylesheet name="style.css" />
+</h:head>
+
+<h:body>
+	<h1>Add your sign!</h1>
+	<hr />
+	<h:form>
+		<h:panelGrid columns="3">
+			Nickname
+			<h:inputText id="nickname" value="#{addBacking.nickname}"
+				maxlength="25" required="true" size="25"
+				requiredMessage="Sorry, no anon sign." />
+			<h:message for="nickname" />
+			
+			Message
+			<h:inputTextarea id="message" value="#{addBacking.message}"
+				maxlength="2000" required="true" rows="8" cols="25"
+				requiredMessage="This is required!" />
+			<h:message for="message" />
+			
+			&nbsp;
+			<h:commandButton value="Sign it!" action="#{addBacking.sign}" />
+			&nbsp;
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+
+</html>
