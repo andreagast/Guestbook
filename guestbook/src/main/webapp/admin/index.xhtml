@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<f:event type="preRenderView" listener="#{admin.checkLoginStatus}"/>
+	<f:event type="preRenderView" listener="#{admin.loadData}"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h:outputStylesheet name="style.css"/>
 	<title>guestbook - admin panel</title>
@@ -12,9 +13,25 @@
 <h:body>
 	<h1>admin panel</h1>
 	<hr/>
-	<p>Just a plain old placeholder (POPH).</p>
 	<h:form>
-		<h:commandButton value="Logout" action="#{admin.logout}" />
+	<table>
+		<tr>
+			<td>Change admin password:</td>
+			<td><h:inputSecret value="#{admin.password}"/></td>
+			<td><h:commandButton value="Change password" action="#{admin.doChangePassword}"/></td>
+		</tr>
+		<tr>
+			<td>Change site's title:</td>
+			<td><h:inputText value="#{admin.title}"/></td>
+			<td><h:commandButton value="Change title" action="#{admin.doChangeTitle}"/></td>
+		</tr>
+		<tr>
+			<td>Logout:</td>
+			<td>&nbsp;</td>
+			<td><h:commandButton value="Logout" action="#{admin.doLogout}" /></td>
+		</tr>
+	</table>
 	</h:form>
+	<h:messages/>
 </h:body>
 </html>

@@ -1,5 +1,6 @@
 package it.gas.samples.guestbook;
 
+import it.gas.samples.guestbook.admin.AppBean;
 import it.gas.samples.guestbook.persistence.Sign;
 
 import java.util.List;
@@ -15,6 +16,8 @@ import javax.faces.event.ComponentSystemEvent;
 public class GuestbookBacking {
 	@EJB
 	private GuestbookEJB gbEJB;
+	@EJB
+	private AppBean app;
 	private List<Sign> list;
 	private int page;
 	private long totalPages;
@@ -39,8 +42,6 @@ public class GuestbookBacking {
 					.handleNavigation(fc, null, "index?faces-redirect=true");
 		}
 		list = gbEJB.getSigns(page);
-
-
 	}
 
 	public List<Sign> getList() {
@@ -65,6 +66,10 @@ public class GuestbookBacking {
 
 	public boolean isPrevAvailable() {
 		return prevAvailable;
+	}
+
+	public String getTitle() {
+		return app.getTitle();
 	}
 
 }

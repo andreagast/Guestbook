@@ -4,13 +4,14 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>Add your sign!</title>
+	<title><h:outputText value="#{addBacking.title}"/> - add your sign</title>
 	<h:outputStylesheet name="style.css" />
 </h:head>
 
 <h:body>
-	<h1>Add your sign!</h1>
+	<h1><h:outputText value="#{addBacking.title}"/> - add your sign!</h1>
 	<hr />
+	<p>Fill the form below to leave your own sign to this guestbook!</p>
 	<h:form>
 		<h:panelGrid columns="3">
 			Nickname

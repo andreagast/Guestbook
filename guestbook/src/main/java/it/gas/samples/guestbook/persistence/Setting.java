@@ -2,10 +2,8 @@ package it.gas.samples.guestbook.persistence;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name = "setting.key", query = "SELECT o FROM Setting o WHERE o.chiave = :key")
 public class Setting {
 	@Id
 	private String chiave;

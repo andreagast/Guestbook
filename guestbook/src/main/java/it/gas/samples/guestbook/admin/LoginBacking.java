@@ -29,7 +29,7 @@ public class LoginBacking {
 			return "index.xhtml?faces-redirect=true";
 
 		FacesContext fc = FacesContext.getCurrentInstance();
-		fc.addMessage("", new FacesMessage("Password not recognized."));
+		fc.addMessage(null, new FacesMessage("Password not recognized."));
 		return null;
 	}
 
