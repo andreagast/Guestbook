@@ -5,6 +5,7 @@
 	<persistence-unit name="guestbookPU">
 		<jta-data-source>jdbc/__default</jta-data-source>
 		<class>it.gas.samples.guestbook.persistence.Sign</class>
+		<class>it.gas.samples.guestbook.persistence.Option</class>
 		<properties>
 			<property name="eclipselink.ddl-generation" value="create-tables"/>
 			<property name="eclipselink.logging.level" value="FINE"/>
